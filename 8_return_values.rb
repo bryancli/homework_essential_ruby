@@ -44,10 +44,8 @@ end
 
 def mean(list_of_numbers)
   # Let's re-use the work we did above in the sum method
+  return sum(list_of_numbers) / list_of_numbers.count
 
-  # ====================
-  # Your code goes here.
-  # ====================
 end
 
 # VARIANCE
@@ -61,10 +59,13 @@ end
 
 def variance(list_of_numbers)
   # Let's re-use the work we did above in the mean method
+  running_total = 0
+  mean = mean(list_of_numbers)
+  list_of_numbers.each do |number|
+    running_total += (number - mean) ** 2
+  end
 
-  # ====================
-  # Your code goes here.
-  # ====================
+  return running_total / list_of_numbers.count
 end
 
 # STANDARD DEVIATION
@@ -73,18 +74,28 @@ end
 #  - take the square root of the variance
 
 def standard_deviation(list_of_numbers)
-  # ====================
-  # Your code goes here.
-  # ====================
+  return variance(list_of_numbers)**0.5
 end
 
 
 # Finally, everything above allows us to do:
 
-# first_dataset = [93, 65, 87, 68, 2, 64, 36, 96, 45, 47]
-# stdev1 = standard_deviation(first_dataset)
-# puts "The standard deviation of the first dataset is #{stdev1.round(2)}."
+first_dataset = [93, 65, 87, 68, 2, 64, 36, 96, 45, 47]
+# sum1 = sum(first_dataset)
+# puts "Sum of first dataset is #{sum1.round(2)}"
+# mean1 = mean(first_dataset)
+# puts "Mean of first dataset is #{mean1.round(2)}"
+# variance1 = variance(first_dataset)
+# puts "Variance of first dataset is #{variance1.round(2)}"
+stdev1 = standard_deviation(first_dataset)
+puts "The standard deviation of the first dataset is #{stdev1.round(2)}."
 
-# second_dataset = [2, 9, 405, 562, 740, 133, 346, 509, 21, 93]
-# stdev2 = standard_deviation(second_dataset)
-# puts "The standard deviation of the second dataset is #{stdev2.round(2)}."
+second_dataset = [2, 9, 405, 562, 740, 133, 346, 509, 21, 93]
+# sum2 = sum(second_dataset)
+# puts "Sum of first dataset is #{sum2.round(2)}"
+# mean2 = mean(second_dataset)
+# puts "Mean of second dataset is #{mean2.round(2)}"
+# variance2 = variance(second_dataset)
+# puts "Variance of first dataset is #{variance2.round(2)}"
+stdev2 = standard_deviation(second_dataset)
+puts "The standard deviation of the second dataset is #{stdev2.round(2)}."
